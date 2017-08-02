@@ -7,6 +7,11 @@
     = f.label t('from_url')
     .six.wide.field = f.text_field :remote_image_url
 
+    - if processing.errors.any?
+        ul
+          - processing.errors.full_messages.each do |message|
+            li = message
+
   .fields
     .sixteen.wide.field.right-align
       = f.button :submit

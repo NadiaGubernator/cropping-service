@@ -4,3 +4,6 @@ en:
   crop: Crop Image!
   from_file: Local image
   from_url: Or use url
+  errors:
+    messages:
+      extension_whitelist_error: format must be jpg, jpeg, gif or png

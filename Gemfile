@@ -9,6 +9,7 @@ gem 'rails',                   '~> 5.1.1'
 gem 'sqlite3'
 gem 'puma',                    '~> 3.7'
 gem 'simple_form',             '~> 3.5'
+
 gem 'carrierwave',             '~> 1.0'
 gem 'mini_magick',             '~> 4.8'
 
@@ -36,4 +37,5 @@ end
 group :test do
   gem 'capybara',              '~> 2.13'
   gem 'simplecov'
+  gem 'factory_girl_rails'
 end
