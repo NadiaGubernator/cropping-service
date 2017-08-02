@@ -8,6 +8,7 @@ end
 gem 'rails',                   '~> 5.1.1'
 gem 'sqlite3'
 gem 'puma',                    '~> 3.7'
+gem 'simple_form',             '~> 3.5'
 gem 'carrierwave',             '~> 1.0'
 gem 'mini_magick',             '~> 4.8'
 

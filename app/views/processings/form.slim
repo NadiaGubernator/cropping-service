@@ -1,0 +1,12 @@
+= t('new')
+
+= simple_form_for processing, as: :processing do |f|
+  .fields
+    = f.label t('from_file')
+    .six.wide.field = f.file_field :image
+    = f.label t('from_url')
+    .six.wide.field = f.text_field :remote_image_url
+
+  .fields
+    .sixteen.wide.field.right-align
+      = f.button :submit
