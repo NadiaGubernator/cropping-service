@@ -32,10 +32,12 @@ group :development, :test do
   gem 'rubocop'
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'guard-rspec'
 end
 
 group :test do
   gem 'capybara',              '~> 2.13'
   gem 'simplecov'
   gem 'factory_girl_rails'
+  gem 'launchy',               '~> 2.4', '>= 2.4.3'
 end

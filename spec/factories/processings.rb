@@ -1,7 +1,11 @@
 FactoryGirl.define do
-  factory :processing do
-    after :create do |b|
-      b.update_column(:image, 'spec/fixtures/images/rails.png')
-    end
+  factory :processing, class: Processing do
+    image Rack::Test::UploadedFile.new(
+      File.open(
+        File.join(
+          Rails.root, '/spec/fixtures/images/rails.png'
+        )
+      )
+    )
   end
 end

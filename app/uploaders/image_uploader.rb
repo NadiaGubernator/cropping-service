@@ -4,10 +4,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
-    'images'
+    './uploads/tmp/images'
   end
 
   def extension_whitelist
-    %w[jpg jpeg gif png]
+    %w[jpg jpeg gif png svg]
   end
 end

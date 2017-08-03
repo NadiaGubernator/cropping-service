@@ -6,4 +6,4 @@ en:
   from_url: Or use url
   errors:
     messages:
-      extension_whitelist_error: format must be jpg, jpeg, gif or png
+      extension_whitelist_error: format must be jpg, jpeg, gif, png or svg
