@@ -1,9 +1,5 @@
 .ui.main.stackable.grid
   .ui.eight.column
-    = t('crop')
 
   .ui.eight.column
     = image_tag processing.image_url.to_s
-
-    javascript:
-      $(document).ready(new CroppingService.position());
