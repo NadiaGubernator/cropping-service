@@ -19,6 +19,7 @@ gem 'slim-rails',              '~> 3.1'
 gem 'semantic-ui-sass',        '~> 2.2'
 gem 'coffee-rails',            '~> 4.2'
 gem 'turbolinks',              '~> 5'
+gem 'jquery-rails',            '~> 4.3', '>= 4.3.1'
 
 group :development do
   gem 'web-console',           '>= 3.3.0'
