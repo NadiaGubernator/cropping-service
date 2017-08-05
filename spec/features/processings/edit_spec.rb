@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Processing EDIT' do
-  let!(:processing) { create(:processing, crop_x: nil, crop_y: nil) }
+  let!(:processing) { create(:processing) }
+  let(:size)        { Processing::SIZES[1] }
 
   before            { visit '/processings/1/edit' }
 
@@ -9,7 +10,7 @@ RSpec.describe 'Processing EDIT' do
     expect(page).to have_css("img[src*='rails.png']")
   end
 
-  it 'shows alert correctly', js: true do
+  it 'shows info in alert correctly', js: true do
     find("img[src*='rails.png']").click
 
     text = page.driver.browser.switch_to.alert.text
@@ -25,7 +26,7 @@ RSpec.describe 'Processing EDIT' do
     click_button 'Crop Image!'
 
     expect(page).to have_current_path '/processings/1'
-    expect(page).to have_css("img[src*='rails.png']")
+    expect(page).to have_css("img[src*='cropped_rails.png']")
   end
 
   it 'adds correct crop_x and crop_y to form', js: true do
@@ -40,5 +41,14 @@ RSpec.describe 'Processing EDIT' do
 
     expect(crop_x).to eq('256')
     expect(crop_y).to eq('256')
+  end
+
+  it 'updates crop size correctly' do
+    page.choose(size)
+
+    click_button 'Crop Image!'
+    processing.reload
+
+    expect(processing.crop_size).to eq(size)
   end
 end

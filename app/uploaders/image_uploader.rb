@@ -24,6 +24,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   private
 
   def crop_data?(*)
-    !model.crop_size.nil?
+    !model.crop_x.nil?
   end
 end
