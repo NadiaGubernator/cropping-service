@@ -19,6 +19,7 @@ class ProcessingsController < ApplicationController
 
   def update
     if processing.update(crop_params)
+      Processing::Update.call(processing)
       redirect_to processing
     else
       render :edit
@@ -36,6 +37,6 @@ class ProcessingsController < ApplicationController
   end
 
   def crop_params
-    params.require(:processing).permit(:crop_x, :crop_y)
+    params.require(:processing).permit(:crop_x, :crop_y, :crop_size)
   end
 end

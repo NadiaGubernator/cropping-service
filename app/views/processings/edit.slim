@@ -4,6 +4,7 @@
       .fields
         = f.hidden_field :crop_x, id: 'crop_x'
         = f.hidden_field :crop_y, id: 'crop_y'
+        = f.input :crop_size, collection: Processing::SIZES, as: :radio_buttons
 
       .fields
         = f.button :submit, t('crop')

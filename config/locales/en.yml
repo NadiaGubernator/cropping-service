@@ -4,6 +4,10 @@ en:
   crop: Crop Image!
   from_file: Local image
   from_url: Or use url
+  crop_another: Crop another picture
+  crop_again: Crop the picture again
+  download: Download this crop
+  file_name: Crop
   errors:
     messages:
       extension_whitelist_error: format must be jpg, jpeg, gif, png or svg

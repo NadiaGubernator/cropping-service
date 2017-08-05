@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803152925) do
+ActiveRecord::Schema.define(version: 20170805130742) do
 
-  create_table 'processings', force: :cascade do |t|
-    t.string   'image'
-    t.string   'remote_image_url'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.integer  'crop_x'
-    t.integer  'crop_y'
+  create_table "processings", force: :cascade do |t|
+    t.string "image"
+    t.string "remote_image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "crop_x"
+    t.integer "crop_y"
+    t.string "crop_size"
   end
 
 end
