@@ -11,9 +11,17 @@ class ProcessingsController < ApplicationController
     @processing = Processing.new(processing_params)
 
     if @processing.save
-      redirect_to @processing
+      render :edit
     else
       render :form
+    end
+  end
+
+  def update
+    if processing.update(crop_params)
+      redirect_to processing
+    else
+      render :edit
     end
   end
 
@@ -25,5 +33,9 @@ class ProcessingsController < ApplicationController
 
   def processing_params
     params.require(:processing).permit(:image, :remote_image_url)
+  end
+
+  def crop_params
+    params.require(:processing).permit(:crop_x, :crop_y)
   end
 end

@@ -19,6 +19,7 @@ gem 'slim-rails',              '~> 3.1'
 gem 'semantic-ui-sass',        '~> 2.2'
 gem 'coffee-rails',            '~> 4.2'
 gem 'turbolinks',              '~> 5'
+gem 'jquery-rails',            '~> 4.3',   '>= 4.3.1'
 
 group :development do
   gem 'web-console',           '>= 3.3.0'
@@ -39,5 +40,7 @@ group :test do
   gem 'capybara',              '~> 2.13'
   gem 'simplecov'
   gem 'factory_girl_rails'
-  gem 'launchy',               '~> 2.4', '>= 2.4.3'
+  gem 'launchy',               '~> 2.4',  '>= 2.4.3'
+  gem 'selenium-webdriver',    '~> 3.4',  '>= 3.4.4'
+  gem 'database_cleaner',      '~> 1.5',  '>= 1.5.3'
 end
