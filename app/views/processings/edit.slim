@@ -1,7 +1,5 @@
 .ui.main.stackable.grid
   .ui.eight.column
-    = t('crop')
-
     = simple_form_for processing, as: :processing do |f|
       .fields
         = f.hidden_field :crop_x, id: 'crop_x'
