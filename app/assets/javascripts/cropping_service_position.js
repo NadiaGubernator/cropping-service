@@ -5,9 +5,9 @@ CroppingService.position = function(){
     var relX = e.pageX - parentOffset.left;
     var relY = e.pageY - parentOffset.top;
 
-    document.getElementById('crop_x').value = relX;
-    document.getElementById('crop_y').value = relY;
-
     alert("Selected point:\n" + "Left: " + relX + " Top: " + relY);
+
+    window.location.href = window.location.href
+      .replace( /[\?].*|$/, "?x=" + relX + "&y=" + relY );
   });
 }

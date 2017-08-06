@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Processing::Update do
+describe Processing::UpdateCrop do
   let!(:processing) { create(:processing, crop_x: 10, crop_y: 10, crop_size: Processing::SIZES[0]) }
 
   describe '#call' do

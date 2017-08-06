@@ -1,5 +1,5 @@
 class Processing < ApplicationRecord
-  class Update
+  class UpdateCrop
     def self.call(*args)
       new(*args).call
     end

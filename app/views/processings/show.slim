@@ -2,7 +2,7 @@
   .ui.eight.column
     = link_to t('crop_another'), new_processing_path
     = link_to t('crop_again'),   edit_processing_path
-    = link_to t('download'),     cropped_image(processing), download: t('file_name')
+    = link_to t('download'),     cropped_image, download: file_name
 
   .ui.eight.column
-    = image_tag cropped_image(processing)
+    = image_tag cropped_image
