@@ -3,5 +3,13 @@ class Processing < ApplicationRecord
 
   SIZES = %w[50x50 500x500 1000x250 250x1000].freeze
 
-  validates :image, presence: true
+  validates :image,     presence: true
+  validates :crop_size, inclusion: { in: Processing::SIZES }, allow_nil: true
+
+  validate  :edit_policy
+
+  def edit_policy
+    policy = Processing::EditPolicy.new(self)
+    errors.add(:image, 'is too small for cropping!') unless policy.allowed?
+  end
 end

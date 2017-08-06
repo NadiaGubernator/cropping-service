@@ -19,7 +19,7 @@ class ProcessingsController < ApplicationController
 
   def update
     if processing.update(crop_params)
-      Processing::Update.call(processing)
+      Processing::UpdateCrop.call(processing)
       redirect_to processing
     else
       render :edit
