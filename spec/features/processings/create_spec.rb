@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Processing CREATE' do
-  before { visit '/processings/new' }
+  before do
+    visit '/processings/new'
+    allow_any_instance_of(Processing::EditPolicy).to receive(:allowed?).and_return(true)
+  end
 
   describe 'invalid input' do
     context 'no image uploaded' do
@@ -29,6 +32,17 @@ RSpec.describe 'Processing CREATE' do
         click_button 'Upload image!'
 
         expect(page).to have_content 'Image trying to download a file which is not served over HTTP'
+      end
+    end
+
+    context 'image is too small' do
+      it 'shows error' do
+        allow_any_instance_of(Processing::EditPolicy).to receive(:allowed?).and_return(false)
+        attach_file('processing[image]', 'spec/fixtures/images/rails.png')
+
+        click_button 'Upload image!'
+
+        expect(page).to have_content 'Image is too small for cropping!'
       end
     end
   end
