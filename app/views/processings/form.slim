@@ -1,17 +1,17 @@
-= t('new')
-
-= simple_form_for processing, as: :processing do |f|
+.ui.main.stackable.grid.centered
   .fields
-    = f.label t('from_file')
-    .six.wide.field = f.file_field :image
-    = f.label t('from_url')
-    .six.wide.field = f.text_field :remote_image_url
+    h2 = t('new')
 
-    - if processing.errors.any?
-        ul
-          - processing.errors.full_messages.each do |message|
-            li = message
+    = simple_form_for processing, as: :processing do |f|
+      h3 = f.label t('from_file')
+      .six.wide.field = f.file_field :image
+      h3 = f.label t('from_url')
+      .eight.wide.field = f.text_field :remote_image_url
 
-  .fields
-    .sixteen.wide.field.right-align
-      = f.button :submit, t('upload')
+      - if processing.errors.any?
+          ul
+            - processing.errors.full_messages.each do |message|
+              li = message
+
+      .six.wide.field.right-align
+        = f.button :submit, t('upload')

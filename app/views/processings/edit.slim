@@ -9,10 +9,9 @@
 
       .fields
         = f.button :submit, t('crop') if policies_allow?
+        
+        = image_tag processing.image_url.to_s
 
-  .ui.eight.column
-    = image_tag processing.image_url.to_s
-
-    javascript:
-      $(document).ready(new CroppingService.position());
-      $(document).ready(new CroppingService.sizeParam());
+        javascript:
+          $(document).ready(new CroppingService.position());
+          $(document).ready(new CroppingService.sizeParam());

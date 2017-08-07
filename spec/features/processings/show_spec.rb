@@ -7,8 +7,8 @@ RSpec.describe 'Processing SHOW' do
 
   it 'displays page correctly' do
     expect(page).to have_css("img[src*='cropped_rails.png']")
-    expect(page).to have_link('Crop another picture')
-    expect(page).to have_link('Crop the picture again')
+    expect(page).to have_link('Crop another image')
+    expect(page).to have_link('Crop the image again')
     expect(page).to have_link('Download')
   end
 

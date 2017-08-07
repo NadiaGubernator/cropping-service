@@ -1,6 +1,10 @@
 class ProcessingsController < ApplicationController
   helper_method :processing
 
+  def index
+    @processing = Processing.last
+  end
+
   def new
     @processing = Processing.new
 
@@ -11,7 +15,7 @@ class ProcessingsController < ApplicationController
     @processing = Processing.new(processing_params)
 
     if @processing.save
-      redirect_to processings_path
+      redirect_to processings_path(created: true)
     else
       render :form
     end

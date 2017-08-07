@@ -1,0 +1,12 @@
+.ui.main.stackable.grid.centered
+  .fields
+    h1 = t('welcome')
+    h3 = t('instruction')
+    h3 = t('first_step')
+    h3 = t('second_step')
+
+    .ui.eight.column
+      = link_to t('new_image'), new_processing_path,
+        class: 'ui button'
+      = link_to t('this_image'), edit_processing_path(processing),
+        class: 'ui button' if params[:created]

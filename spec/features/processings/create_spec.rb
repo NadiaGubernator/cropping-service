@@ -54,7 +54,7 @@ RSpec.describe 'Processing CREATE' do
 
         click_button 'Upload image!'
 
-        expect(page).to have_current_path '/processings'
+        expect(page).to have_current_path '/processings?created=true'
       end
 
       context 'from url' do
@@ -63,7 +63,7 @@ RSpec.describe 'Processing CREATE' do
 
           click_button 'Upload image!'
 
-          expect(page).to have_current_path '/processings'
+          expect(page).to have_current_path '/processings?created=true'
         end
       end
     end

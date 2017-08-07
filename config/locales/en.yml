@@ -4,14 +4,17 @@ en:
   crop: Crop Image!
   from_file: Local image
   from_url: Or use url
-  crop_another: Crop another picture
-  crop_again: Crop the picture again
+  crop_another: Crop another image
+  crop_again: Crop the image again
   download: Download this crop
   file_name: cropped
   upload: Upload image!
+  welcome: Welcome!
   instruction: How to crop image?
-  first_step: 1. Choose crop size.
-  second_step: 2. Choose top left point of crop area.
+  first_step: 1. Choose top left point of crop area
+  second_step: 2. Choose crop size
+  new_image: Start with new image!
+  this_image: Crop my image!
   errors:
     messages:
       extension_whitelist_error: format must be jpg, jpeg, gif, png or svg
