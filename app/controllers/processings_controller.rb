@@ -22,12 +22,9 @@ class ProcessingsController < ApplicationController
   end
 
   def update
-    if processing.update(crop_params)
-      Processing::UpdateCrop.call(processing)
-      redirect_to processing
-    else
-      redirect_to edit_processing_path(processing)
-    end
+    return unless processing.update(crop_params)
+    Processing::UpdateCrop.call(processing)
+    redirect_to processing
   end
 
   private

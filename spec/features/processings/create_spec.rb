@@ -6,6 +6,20 @@ RSpec.describe 'Processing CREATE' do
     allow_any_instance_of(Processing::EditPolicy).to receive(:allowed?).and_return(true)
   end
 
+  it 'displays page correctly' do
+    expect(page).to have_content('Upload New Image')
+    expect(page).to have_content('Local image')
+    expect(page).to have_content('Or use url')
+    expect(page).to have_button('Upload image!')
+    expect(page).to have_link('Back to index')
+  end
+
+  it 'responds to back button correctly' do
+    click_link 'Back to index'
+
+    expect(page).to have_current_path '/processings'
+  end
+
   describe 'invalid input' do
     context 'no image uploaded' do
       it 'shows error' do

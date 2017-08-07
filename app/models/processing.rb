@@ -13,16 +13,16 @@ class Processing < ApplicationRecord
   validate  :edit_policy
 
   def edit_policy
-    return if file_absent?
+    return unless file_present?
     policy = Processing::EditPolicy.new(self)
     errors.add(:image, 'is too small for cropping!') unless policy.allowed?
   end
 
   def file_name
-    image.file.filename unless file_absent?
+    image.file.filename if file_present?
   end
 
-  def file_absent?
-    image.file.nil?
+  def file_present?
+    Processing::FilePresencePolicy.new(self).allowed?
   end
 end

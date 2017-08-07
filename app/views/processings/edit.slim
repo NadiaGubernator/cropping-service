@@ -1,5 +1,5 @@
 .ui.main.stackable.grid
-  .ui.eight.column
+  .ui.eight.row
     = simple_form_for processing, as: :processing do |f|
       .fields
         = f.hidden_field :crop_x, id: 'crop_x', value: crop_x
@@ -9,9 +9,10 @@
 
       .fields
         = f.button :submit, t('crop') if policies_allow?
-        
-        = image_tag processing.image_url.to_s
 
-        javascript:
-          $(document).ready(new CroppingService.position());
-          $(document).ready(new CroppingService.sizeParam());
+  .ui.eight.row
+    = image_tag processing.image_url.to_s
+
+    javascript:
+      $(document).ready(new CroppingService.position());
+      $(document).ready(new CroppingService.sizeParam());

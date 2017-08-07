@@ -14,4 +14,5 @@
               li = message
 
       .six.wide.field.right-align
-        = f.button :submit, t('upload')
+        = f.button :submit, t('upload'), class: 'ui button'
+        = link_to t('back'), processings_path, class: 'ui button'

@@ -15,6 +15,7 @@ en:
   second_step: 2. Choose crop size
   new_image: Start with new image!
   this_image: Crop my image!
+  back: Back to index
   errors:
     messages:
       extension_whitelist_error: format must be jpg, jpeg, gif, png or svg
