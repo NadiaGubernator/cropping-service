@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails',                   '~> 5.1.1'
-gem 'sqlite3'
+gem 'pg',                      '~> 0.18.4', group: :production
 gem 'puma',                    '~> 3.7'
 gem 'simple_form',             '~> 3.5'
 gem 'friendly_id',             '~> 5.1'
@@ -22,7 +22,10 @@ gem 'coffee-rails',            '~> 4.2'
 gem 'turbolinks',              '~> 5'
 gem 'jquery-rails',            '~> 4.3',   '>= 4.3.1'
 
+gem 'rails_12factor'
+
 group :development do
+  gem 'sqlite3'
   gem 'web-console',           '>= 3.3.0'
   gem 'listen',                '>= 3.0.5', '< 3.2'
   gem 'spring'
