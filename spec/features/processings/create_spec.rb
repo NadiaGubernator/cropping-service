@@ -55,7 +55,6 @@ RSpec.describe 'Processing CREATE' do
         click_button 'Upload image!'
 
         expect(page).to have_current_path '/processings'
-        expect(page).to have_css("img[src*='rails.png']")
       end
 
       context 'from url' do
@@ -65,7 +64,6 @@ RSpec.describe 'Processing CREATE' do
           click_button 'Upload image!'
 
           expect(page).to have_current_path '/processings'
-          expect(page).to have_css("img[src*='rails-logo.svg']")
         end
       end
     end

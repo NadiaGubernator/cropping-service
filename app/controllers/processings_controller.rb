@@ -11,7 +11,7 @@ class ProcessingsController < ApplicationController
     @processing = Processing.new(processing_params)
 
     if @processing.save
-      render :edit
+      redirect_to processings_path
     else
       render :form
     end
@@ -22,14 +22,14 @@ class ProcessingsController < ApplicationController
       Processing::UpdateCrop.call(processing)
       redirect_to processing
     else
-      render :edit
+      redirect_to edit_processing_path(processing)
     end
   end
 
   private
 
   def processing
-    @processing ||= Processing.find(params[:id])
+    @processing ||= Processing.friendly.find(params[:id])
   end
 
   def processing_params
