@@ -12,7 +12,7 @@ module ProcessingHelper
   end
 
   def presence_policy_allows?
-    Processing::PresencePolicy.new(processing, crop_x, crop_y).allowed?
+    Processing::PresencePolicy.new(crop_x, crop_y).allowed?
   end
 
   def crop_policy_allows?(size = crop_size)

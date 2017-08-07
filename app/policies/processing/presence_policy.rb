@@ -1,7 +1,6 @@
 class Processing < ApplicationRecord
   class PresencePolicy
-    def initialize(processing, x, y)
-      @processing = processing
+    def initialize(x, y)
       @crop_x     = x
       @crop_y     = y
     end

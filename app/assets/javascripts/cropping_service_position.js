@@ -1,9 +1,9 @@
 CroppingService.position = function(){
   $("img").click(function(e) {
-    var parentOffset = $(this).parent().offset();
+    var offset = $(this).offset();
 
-    var relX = e.pageX - parentOffset.left;
-    var relY = e.pageY - parentOffset.top;
+    var relX = Math.round(e.pageX - offset.left);
+    var relY = Math.round(e.pageY - offset.top);
 
     alert("Selected point:\n" + "Left: " + relX + " Top: " + relY);
 

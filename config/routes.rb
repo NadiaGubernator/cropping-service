@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'processings#new'
+  root 'processings#index'
 
   resources :processings, except: :destroy
 end

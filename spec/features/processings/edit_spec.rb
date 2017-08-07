@@ -26,7 +26,7 @@ RSpec.describe 'Processing EDIT' do
 
     click_button 'Crop Image!'
 
-    expect(page).to have_current_path '/processings/1'
+    expect(page).to have_current_path "/processings/#{processing.friendly_id}"
     expect(page).to have_css("img[src*='cropped_rails.png']")
   end
 

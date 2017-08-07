@@ -1,8 +1,9 @@
 .ui.main.stackable.grid
-  .ui.eight.column
-    = link_to t('crop_another'), new_processing_path
-    = link_to t('crop_again'),   edit_processing_path
-    = link_to t('download'),     cropped_image, download: file_name
+  .ui.eight.row
+    = link_to t('back'),         processings_path(created: true), class: 'ui button'
+    = link_to t('crop_another'), new_processing_path, class: 'ui button'
+    = link_to t('crop_again'),   edit_processing_path, class: 'ui button'
+    = link_to t('download'),     cropped_image, download: file_name, class: 'ui button'
 
-  .ui.eight.column
+  .ui.eight.row
     = image_tag cropped_image
