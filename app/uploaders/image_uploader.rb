@@ -17,7 +17,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def crop
     manipulate! do |img|
-      img.crop("#{model.crop_size}+#{model.crop_x}+#{model.crop_y}")
+      img.crop("#{model.crop_size}+#{top_left[:x]}+#{top_left[:y]}")
     end
   end
 
@@ -25,5 +25,9 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def crop_data?(*)
     !model.crop_x.nil?
+  end
+
+  def top_left
+    Processing::CalculateTopLeft.call(model.crop_size, model.crop_x, model.crop_y)
   end
 end

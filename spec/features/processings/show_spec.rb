@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Processing SHOW' do
-  let!(:processing) { create(:processing, crop_x: 10, crop_y: 10, crop_size: Processing::SIZES[0]) }
+  let!(:processing) { create(:processing, crop_x: 25, crop_y: 25, crop_size: Processing::SIZES[0]) }
 
   before            { visit '/processings/1' }
 
@@ -41,9 +41,9 @@ RSpec.describe 'Processing SHOW' do
     processing.image.recreate_versions!
     image = MiniMagick::Image.open(processing.image.cropped.file.path)
 
-    size = processing.crop_size.split('x')
+    size = Processing::CropParams.call(processing.crop_size)
 
-    expect(image.width).to  eq(size[0].to_i)
-    expect(image.height).to eq(size[1].to_i)
+    expect(image.width).to  eq(size[0])
+    expect(image.height).to eq(size[1])
   end
 end
