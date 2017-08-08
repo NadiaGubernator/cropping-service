@@ -1,14 +1,14 @@
 class Processing < ApplicationRecord
   class CropPolicy
-    def initialize(processing, crop_size, x, y)
+    def initialize(processing, crop_size, crop_x, crop_y)
       @processing = processing
       @crop_size  = crop_size || processing.crop_size
-      @crop_x     = x
-      @crop_y     = y
+      @crop_x     = crop_x
+      @crop_y     = crop_y
     end
 
     def allowed?
-      crop_size? && width_bigger_than_crop? && height_bigger_than_crop?
+      !crop_size.nil? && width_bigger_than_crop? && height_bigger_than_crop?
     end
 
     private
@@ -20,19 +20,27 @@ class Processing < ApplicationRecord
     end
 
     def crop_params
-      @crop_params ||= crop_size.split('x')
+      @crop_params ||= Processing::CropParams.call(crop_size)
     end
 
-    def crop_size?
-      !crop_size.nil?
+    def top_left
+      @top_left ||= Processing::CalculateTopLeft.call(crop_size, crop_x, crop_y)
+    end
+
+    def width
+      @width  ||= crop_params[0] + top_left[:x]
+    end
+
+    def height
+      @height ||= crop_params[1] + top_left[:y]
     end
 
     def width_bigger_than_crop?
-      image.width > (crop_params[0].to_i + crop_x.to_i)
+      image.width > width && width > 0
     end
 
     def height_bigger_than_crop?
-      image.height > (crop_params[1].to_i + crop_y.to_i)
+      image.height > height && height > 0
     end
   end
 end
