@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe Processing::CropPolicy do
   let(:processing) { create(:processing) }
-  let(:x)          { 0 }
-  let(:y)          { 0 }
-  let(:wrong_x)    { 500 }
-  let(:wrong_y)    { 500 }
+  let(:x)          { 25 }
+  let(:y)          { 25 }
+  let(:wrong_x)    { 1100 }
+  let(:wrong_y)    { 1100 }
   let(:size)       { Processing::SIZES[0] }
   let(:wrong_size) { Processing::SIZES[2] }
 

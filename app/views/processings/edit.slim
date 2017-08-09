@@ -11,8 +11,9 @@
         = f.button :submit, t('crop') if policies_allow?
 
   .ui.eight.row
-    = image_tag processing.image_url.to_s
 
-    javascript:
-      $(document).ready(new CroppingService.position());
-      $(document).ready(new CroppingService.sizeParam());
+= image_tag processing.image_url.to_s
+
+javascript:
+  $(document).ready(new CroppingService.position());
+  $(document).ready(new CroppingService.sizeParam());

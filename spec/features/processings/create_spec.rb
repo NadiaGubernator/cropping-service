@@ -52,7 +52,7 @@ RSpec.describe 'Processing CREATE' do
     context 'image is too small' do
       it 'shows error' do
         allow_any_instance_of(Processing::EditPolicy).to receive(:allowed?).and_return(false)
-        attach_file('processing[image]', 'spec/fixtures/images/rails.png')
+        attach_file('processing[image]', 'spec/fixtures/images/space.jpg')
 
         click_button 'Upload image!'
 
@@ -64,7 +64,7 @@ RSpec.describe 'Processing CREATE' do
   describe 'valid input' do
     context 'local image' do
       it 'creates processing' do
-        attach_file('processing[image]', 'spec/fixtures/images/rails.png')
+        attach_file('processing[image]', 'spec/fixtures/images/space.jpg')
 
         click_button 'Upload image!'
 
