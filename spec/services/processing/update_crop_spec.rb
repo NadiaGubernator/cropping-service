@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Processing::UpdateCrop do
-  let!(:processing) { create(:processing, crop_x: 10, crop_y: 10, crop_size: Processing::SIZES[0]) }
+  let!(:processing) { create(:processing, crop_x: 250, crop_y: 250, crop_size: Processing::SIZES[0]) }
 
   describe '#call' do
     it 'updates cropped version of image' do

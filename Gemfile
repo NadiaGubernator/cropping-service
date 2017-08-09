@@ -29,6 +29,8 @@ group :development do
   gem 'listen',                '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
@@ -38,12 +40,12 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'guard-rspec'
+  gem 'factory_girl_rails'
 end
 
 group :test do
   gem 'capybara',              '~> 2.13'
   gem 'simplecov'
-  gem 'factory_girl_rails'
   gem 'launchy',               '~> 2.4',  '>= 2.4.3'
   gem 'selenium-webdriver',    '~> 3.4',  '>= 3.4.4'
   gem 'database_cleaner',      '~> 1.5',  '>= 1.5.3'

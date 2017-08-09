@@ -23,11 +23,11 @@ class Processing < ApplicationRecord
     end
 
     def half_width
-      crop_params[0] / 2
+      crop_params[0] / 2.0
     end
 
     def half_height
-      crop_params[1] / 2
+      crop_params[1] / 2.0
     end
 
     def x

@@ -28,19 +28,21 @@ class Processing < ApplicationRecord
     end
 
     def width
-      @width  ||= crop_params[0] + top_left[:x]
+      @width  ||= crop_params[0] + top_left[:x] if top_left[:x] >= 0
     end
 
     def height
-      @height ||= crop_params[1] + top_left[:y]
+      @height ||= crop_params[1] + top_left[:y] if top_left[:y] >= 0
     end
 
     def width_bigger_than_crop?
-      image.width > width && width > 0
+      return false if width.nil?
+      image.width >= width
     end
 
     def height_bigger_than_crop?
-      image.height > height && height > 0
+      return false if height.nil?
+      image.height >= height
     end
   end
 end
