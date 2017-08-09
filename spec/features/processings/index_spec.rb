@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Processing INDEX' do
   context 'before image upload' do
-    before { visit '/processings'}
+    before { visit '/processings' }
 
     it 'displays page correctly' do
       expect(page).to     have_content('Welcome!')
@@ -24,7 +24,7 @@ RSpec.describe 'Processing INDEX' do
     before { visit '/processings/new' }
 
     it 'displays page correctly' do
-      attach_file('processing[image]', 'spec/fixtures/images/rails.png')
+      attach_file('processing[image]', 'spec/fixtures/images/space.jpg')
 
       click_button 'Upload image!'
 
@@ -38,12 +38,12 @@ RSpec.describe 'Processing INDEX' do
     end
 
     it 'responds to crop image button correctly' do
-      attach_file('processing[image]', 'spec/fixtures/images/rails.png')
+      attach_file('processing[image]', 'spec/fixtures/images/space.jpg')
 
       click_button 'Upload image!'
       click_link 'Crop my image!'
 
-      expect(page).to have_current_path '/processings/rails-png/edit'
+      expect(page).to have_current_path '/processings/space-jpg/edit'
     end
   end
 end

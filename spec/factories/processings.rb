@@ -3,7 +3,7 @@ FactoryGirl.define do
     image Rack::Test::UploadedFile.new(
       File.open(
         File.join(
-          Rails.root, '/spec/fixtures/images/rails.png'
+          Rails.root, '/spec/fixtures/images/space.jpg'
         )
       )
     )

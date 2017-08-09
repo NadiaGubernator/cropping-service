@@ -17,11 +17,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def crop
     manipulate! do |img|
-      ratio_size   = scaling
-      ratio_coords = top_left(ratio_size, model.crop_x, model.crop_y)
+      ratio_coords = top_left(scaling, model.crop_x, model.crop_y)
 
-      img.crop("#{ratio_size}+#{ratio_coords[:x]}+#{ratio_coords[:y]}")
-         .resize(size)
+      img.crop("#{scaling}+#{ratio_coords[:x]}+#{ratio_coords[:y]}")
+         .resize(model.crop_size)
     end
   end
 

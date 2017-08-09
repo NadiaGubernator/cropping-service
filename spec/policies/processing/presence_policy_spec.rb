@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe Processing::PresencePolicy do
-  let(:x)          { 0 }
-  let(:y)          { 0 }
+  let(:x) { 0 }
+  let(:y) { 0 }
 
   describe '#allowed?' do
     context 'x and y are present' do
