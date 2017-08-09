@@ -11,7 +11,7 @@ en:
   upload: Upload image!
   welcome: Welcome!
   instruction: How to crop image?
-  first_step: 1. Choose top left point of crop area
+  first_step: 1. Choose central point of crop area
   second_step: 2. Choose crop size
   new_image: Start with new image!
   this_image: Crop my image!
