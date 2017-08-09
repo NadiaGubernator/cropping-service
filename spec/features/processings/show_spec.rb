@@ -6,7 +6,7 @@ RSpec.describe 'Processing SHOW' do
   before            { visit '/processings/1' }
 
   it 'displays page correctly' do
-    expect(page).to have_css("img[src*='cropped_rails.png']")
+    expect(page).to have_css("img[src*='cropped_space.jpg']")
     expect(page).to have_link('Crop another image')
     expect(page).to have_link('Crop the image again')
     expect(page).to have_link('Download')
@@ -22,7 +22,7 @@ RSpec.describe 'Processing SHOW' do
   it 'responds to crop again button correctly' do
     click_link 'Crop the image again'
 
-    expect(page).to have_current_path "/processings/1/edit"
+    expect(page).to have_current_path '/processings/1/edit'
   end
 
   it 'responds to crop another button correctly' do
@@ -34,7 +34,7 @@ RSpec.describe 'Processing SHOW' do
   it 'responds to download button correctly' do
     click_link 'Download'
 
-    expect(page).to have_current_path '/uploads/images/cropped_rails.png'
+    expect(page).to have_current_path '/uploads/images/cropped_space.jpg'
   end
 
   it 'displays correct croped image' do
